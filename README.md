@@ -1,7 +1,7 @@
-{{cookiecutter.project_name}}
+animcaloutcomes
 ==============================
 
-{{cookiecutter.description}}
+Predict the outcomes of an Austin animal shelter.
 
 Project Organization
 ------------
