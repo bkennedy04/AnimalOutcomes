@@ -1,4 +1,4 @@
-animcaloutcomes
+animaloutcomes
 ==============================
 
 Predict the outcomes of an Austin animal shelter.
