@@ -1,0 +1,85 @@
+---
+title: "Animal Outcomes"
+author: "Brooke Kennedy"
+date: "February 1, 2018"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyr)
+library(dummies)
+train <- read.csv("train.csv", na.strings=c("","NA"))
+```
+
+#EDA
+```{r}
+length(unique(train$Name)) #6,375 unique names, 28% blank
+
+#date range: 2013-10-01 to 2016-02-21
+
+summary(train$OutcomeType)
+
+summary(train$OutcomeSubtype)
+
+summary(train$AnimalType) #cat or dog
+
+summary(train$SexuponOutcome)
+
+length(unique(train$Breed)) #1380 breeds
+
+length(unique(train$Color)) #366 colors
+
+summary(train$AgeuponOutcome)
+```
+
+#Data cleansing
+```{r}
+#Create hasName feature
+hasName <- rep(NA, nrow(train))
+for(animal in 1:nrow(train)){
+  if(is.na(train[animal, 2])){hasName[animal] <- 0}
+  else{hasName[animal] <- 1}
+}
+
+train <- cbind(train, hasName)
+
+
+#split age into number and time unit column
+train <- separate(train, AgeuponOutcome, c("value", "timeunit"), sep = " ", fill = "right")
+
+#Convert age to same units (weeks)
+train$value <- as.numeric(train$value)
+train$ageWeeks <- NA
+for(animal in 1:nrow(train)){
+  if((train[animal, 9] == 'year'| train[animal, 9] == 'years') & !is.na(train[animal, 9])){
+    train[animal, 13] <- train[animal, 8] * 52 
+  }
+  else if((train[animal, 9] == 'month'| train[animal, 9] == 'months') & !is.na(train[animal, 9])){
+    train[animal, 13] <- train[animal, 8] * 4 
+  }
+  else{
+    train[animal, 13] <- train[animal, 8]
+  }
+}
+
+
+#Create AnimalType dummy variables (can use just 1 in modeling as isCat or isDog)
+train <- cbind(train, dummy(train$AnimalType, sep = "_"))
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
