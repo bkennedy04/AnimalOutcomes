@@ -61,6 +61,9 @@ for(animal in 1:nrow(train)){
   else if((train[animal, 9] == 'month'| train[animal, 9] == 'months') & !is.na(train[animal, 9])){
     train[animal, 13] <- train[animal, 8] * 4 
   }
+  else if((train[animal, 9] == 'day'| train[animal, 9] == 'days') & !is.na(train[animal, 9])){
+    train[animal, 13] <- train[animal, 8] /7 
+  }
   else{
     train[animal, 13] <- train[animal, 8]
   }
