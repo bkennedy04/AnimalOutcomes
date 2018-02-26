@@ -2,7 +2,10 @@
 title: "Animal Outcomes"
 author: "Brooke Kennedy"
 date: "February 1, 2018"
-output: pdf_document
+output:
+  pdf_document: default
+  html_document: default
+  word_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -15,16 +18,18 @@ library(tidyr)
 library(dplyr)
 library(dummies)
 library(lubridate)
-
 library(nnet)
+library(caret)
+library(rpart)
+library(randomForest)
 ```
 
 #read in data
 ```{r}
-train <- read.csv("train.csv", strip.white = TRUE, na.strings=c("","NA"))
-train$Train <- rep(1) #to keep track of training and testing set
+train <- read.csv("C:/Users/bck00/Documents/GitHub/animaloutcomes/develop/data/external/train.csv", strip.white = TRUE, na.strings=c("","NA"))
+test <- read.csv("C:/Users/bck00/Documents/GitHub/animaloutcomes/develop/data/external/test.csv", strip.white = TRUE, na.strings=c("","NA"))
 
-test <- read.csv("test.csv", strip.white = TRUE, na.strings=c("","NA"))
+train$Train <- rep(1) #to keep track of training and testing set
 test$Train <- rep(0)
 colnames(test)[1] <- "AnimalID" #rename ID column in test to match train ID column
 test$AnimalID <- as.character(test$AnimalID)
@@ -34,23 +39,23 @@ df <- bind_rows(train, test)
 
 #EDA
 ```{r}
-length(unique(train$Name)) #6,375 unique names, 28% blank
+length(unique(df$Name)) #6,375 unique names, 28% blank
 
 #date range: 2013-10-01 to 2016-02-21
 
-summary(train$OutcomeType)
+summary(df$OutcomeType)
 
-summary(train$OutcomeSubtype)
+summary(df$OutcomeSubtype)
 
-summary(train$AnimalType) #cat or dog
+summary(df$AnimalType) #cat or dog
 
-summary(train$SexuponOutcome)
+summary(df$SexuponOutcome)
 
-length(unique(train$Breed)) #1380 breeds
+length(unique(df$Breed)) #1380 breeds
 
-length(unique(train$Color)) #366 colors
+length(unique(df$Color)) #366 colors
 
-summary(train$AgeuponOutcome)
+summary(df$AgeuponOutcome)
 ```
 
 #Data cleansing
@@ -91,6 +96,7 @@ df$ageWeeks = ifelse(is.na(df$ageWeeks), mean(df$ageWeeks, na.rm = T), df$ageWee
 
 #Create AnimalType dummy variables (can use just 1 in modeling as isCat or isDog)
 df <- cbind(df, dummy(df$AnimalType, sep = "_"))
+df$isDog <- df$df_Dog
 
 #Create isMix variable from Breed
 df$Breed <- as.character(df$Breed)
@@ -116,19 +122,41 @@ df$gender <- as.factor(df$gender)
 
 #Delete rows where gender = NA (only 1 obs. in df set)
 df <- df[!(is.na(df$gender)), ]
+
+#Look at top occuring breeds
+breeds <- as.data.frame(table(df$Breed))
+breeds <- breeds[order(-breeds$Freq),]
+row.names(breeds) <- NULL
+topbreeds <- breeds$Var1[1:30] #top 50 breeds
+df$newBreed <- (ifelse(df$Breed %in% topbreeds, df$Breed, "Other"))
+
+#Look at top colors
+colors <- as.data.frame(table(df$Color))
+colors <- colors[order(-colors$Freq),]
+row.names(colors) <- NULL
+topcolors <- colors[1:30, "Var1"] #top 50 colors
+df$newColor <- ifelse(df$Color %in% topcolors, df$Color, "Other")
+
 ```
 
 ```{r}
-final <- c("AnimalID","OutcomeType", "hasName", "ageWeeks", "df_Dog", "isMix", "year", "month", "weekday", "hourOfDay", "isFixed", "gender", "Train")
+final <- c("AnimalID","OutcomeType", "hasName", "ageWeeks", "isDog", "isMix", "month", "weekday", "hourOfDay", "isFixed", "gender", "newBreed", "newColor", "Train")
 
 finaldf <- df[, colnames(df) %in% final]
+finaldf$hasName <- as.factor(finaldf$hasName)
+finaldf$isDog <- as.factor(finaldf$isDog)
+finaldf$isMix <- as.factor(finaldf$isMix)
+finaldf$isFixed <- as.factor(finaldf$isFixed)
+finaldf$weekday <- as.factor(finaldf$weekday)
+finaldf$newBreed <- as.factor(finaldf$newBreed)
+finaldf$newColor <- as.factor(finaldf$newColor)
 
 #split back into train and test sets
 final_train <- finaldf[finaldf$Train == 1, ]
 final_test <- finaldf[finaldf$Train == 0, ]
 
 
-features <- c("OutcomeType", "hasName", "ageWeeks", "df_Dog", "isMix", "year", "month", "weekday", "hourOfDay", "isFixed", "gender")
+features <- c("OutcomeType", "hasName", "ageWeeks", "isDog", "isMix", "month", "weekday", "hourOfDay", "isFixed", "gender", "newBreed", "newColor")
 trainset <- final_train[, colnames(final_train) %in% features]
 testset <- final_test[, colnames(final_test) %in% features]
 ```
@@ -140,28 +168,63 @@ testset <- final_test[, colnames(final_test) %in% features]
 out<-multinom(OutcomeType ~ ., trainset, trace=F)
 summary(out)
 
-yhat <- predict(out, newdata = testset)
+# extract the coefficients from the model and exponentiate
+exp(coef(out))
+
+# confusion matrix
+pred <- as.vector(predict(out, newdata = trainset, type = "class")) #predict on train set
+cf <- confusionMatrix(pred, trainset$OutcomeType) #accuracy = .6497
+cf
+
+yhat <- as.data.frame(predict(out, newdata = testset, type="probs")) #predict on test set (logloss score = 0.87104)
+
 
 ```
+
+```{r}
+#classification tree
+set.seed(123)
+control <- rpart.control(minbucket = 1, cp = 0.0001, maxsurrogate = 0, usesurrogate = 0, xval = 10)
+treeout <- rpart(OutcomeType ~ hasName + ageWeeks + isDog + isMix + year + month + weekday + hourOfDay + isFixed + gender, trainset, method = "class", control = control)
+plotcp(treeout)
+# based on the plot, it looks like optimal cp value = .0005.
+
+# prune to optimal size
+out1 <- prune(treeout, cp=0.0005) #approximately the best size pruned tree
+printcp(out1)
+
+out1$variable.importance # total_int_shares is by far the most significant variable
+out1$cptable[nrow(out1$cptable),]
+
+# calculate training misclass rate
+fitted.results <- predict(out1,type="class")
+sum(fitted.results != trainset$OutcomeType)/nrow(trainset) #training misclass rate of 0.323
+cf <- confusionMatrix(data=fitted.results, trainset$OutcomeType) #accuracy 0.677
+cf
+
+yhat <- as.data.frame(predict(out1, newdata=testset, type="prob")) #predict on testset (logloss score = 0.84240)
+```
+
+```{r}
+#random forest
+rfout <- randomForest(OutcomeType ~ hasName + ageWeeks + isDog + isMix  + month + weekday + hourOfDay + isFixed + gender +newBreed +newColor, data =  trainset)
+
+rfout #training misclass rate of 31.17%
+
+yhat <- as.data.frame(predict(rfout, newdata = testset, type = "prob")) #predict on testset (logloss score = 0.0.79010)
+```
+
 
 ```{r}
 #initialize submission dataframe
 mypreds <- data.frame(matrix(vector(), 11456, 6, dimnames=list(c(), c("ID","Adoption","Died","Euthanasia","Return_to_owner","Transfer"))))
 mypreds$ID <- 1:11456
-mypreds$Adoption <- 0
-mypreds$Died <- 0
-mypreds$Euthanasia <- 0
-mypreds$Return_to_owner <- 0
-mypreds$Transfer <- 0
+mypreds$Adoption <- yhat$Adoption
+mypreds$Died <- yhat$Died
+mypreds$Euthanasia <- yhat$Euthanasia
+mypreds$Return_to_owner <- yhat$Return_to_owner
+mypreds$Transfer <- yhat$Transfer
 
-#fill in based on prediction
-for(pred in 1:nrow(mypreds)){
-  if(yhat[pred] == "Adoption"){mypreds[pred, "Adoption"] = 1}
-  else if(yhat[pred] == "Died"){mypreds[pred, "Died"] = 1}
-  else if(yhat[pred] == "Euthanasia"){mypreds[pred, "Euthanasia"] = 1}
-  else if(yhat[pred] == "Return_to_owner"){mypreds[pred, "Return_to_owner"] = 1}
-  else if(yhat[pred] == "Transfer"){mypreds[pred, "Transfer"] = 1}
-}
 
 
 #print to csv
@@ -169,6 +232,11 @@ write.csv(mypreds, file = "MyPreds.csv", row.names = FALSE)
 ```
 
 
+```{r}
+#export train and test dataset
+write.csv(trainset, file = "trainset.csv", row.names = FALSE)
+write.csv(testset, file = "testset.csv", row.names = FALSE)
+```
 
 
 
