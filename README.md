@@ -5,10 +5,10 @@ Predict the outcomes of an Austin animal shelter.
 
 Project Organization
 ------------
-	├── app					   <- Files for developing flask app.
+	├── app	                       <- Files for developing flask app.
 	│   ├── static      
-	│	└── templates
-	└── develop          	   <- Files for developing predictive model.
+	│   └── templates
+	└── develop          	       <- Files for developing predictive model.
 		├── LICENSE
 		├── Makefile           <- Makefile with commands like `make data` or `make train`
 		├── README.md          <- The top-level README for developers using this project.
