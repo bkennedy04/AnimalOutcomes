@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div>
+		<h1>Please submit your data below:</h1>
+		<form action="" method="post">
+			{{ form.hidden_tag() }}
+			<p>
+				{{ form.gender.label }}<br>
+				{{ form.gender }}<br>
+				{% for error in form.gender.errors %}
+					<span style="color: red;">[{{ error }}]</span>
+				{% endfor %}
+			</p>
+			<p>
+				{{ form.hasName.label }}<br>
+				{{ form.hasName(size=32) }}<br>
+				{% for error in form.hasName.errors %}
+				  <span style="color: red;">[{{ error }}]</span>
+				{% endfor %}
+			</p>
+			<p>
+				{{ form.ageWeeks.label }}<br>
+				{{ form.ageWeeks(size=32) }}<br>
+				{% for error in form.ageWeeks.errors %}
+				   <span style="color: red;">[{{ error }}]</span>
+				{% endfor %}
+			</p>
+			<p>
+				{{ form.animal.label }}<br>
+				{{ form.animal }}<br>
+				{% for error in form.animal.errors %}
+				   <span style="color: red;">[{{ error }}]</span>
+				{% endfor %}
+			</p>
+			<p>
+				{{ form.isMix.label }}<br>
+				{{ form.isMix(size=32) }}<br>
+				{% for error in form.isMix.errors %}
+				   <span style="color: red;">[{{ error }}]</span>
+				{% endfor %}
+			</p>
+			<p>
+				{{ form.month.label }}<br>
+				{{ form.month }}<br>
+				{% for error in form.month.errors %}
+				   <span style="color: red;">[{{ error }}]</span>
+				{% endfor %}
+			</p>			
+			<p>
+				{{ form.weekday.label }}<br>
+				{{ form.weekday }}<br>
+				{% for error in form.weekday.errors %}
+				   <span style="color: red;">[{{ error }}]</span>
+				{% endfor %}
+			<p>
+				{{ form.hourOfDay.label }}<br>
+				{{ form.hourOfDay }}<br>
+				{% for error in form.hourOfDay.errors %}
+				   <span style="color: red;">[{{ error }}]</span>
+				{% endfor %}
+			</p>			
+			<p>
+				{{ form.isFixed.label }}<br>
+				{{ form.isFixed(size=32) }}<br>
+				{% for error in form.isFixed.errors %}
+				   <span style="color: red;">[{{ error }}]</span>
+				{% endfor %}
+			</p>
+			<p>{{ form.submit() }}</p>
+			
+
+		</form>
+	</div>
+{% endblock %}

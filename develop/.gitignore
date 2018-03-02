@@ -80,3 +80,6 @@ target/
 
 # Pickle files
 *.pk
+
+# csv files
+*.csv
