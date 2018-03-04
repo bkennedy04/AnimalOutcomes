@@ -1,5 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>This is my Chart.</h1>
+    <h1>
+		<ul>
+		<li>This probability of adoption: {{ adoption }}.</li>
+		<li>Died: {{ died }}. </li>
+		<li>Euthanasia: {{ euthanasia }}. </li>
+		<li>Return: {{ return_to_owner }}. </li>
+		<li>Transfer: {{ transfer }} </li>
+	</h1>
 {% endblock %}

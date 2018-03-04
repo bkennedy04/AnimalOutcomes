@@ -127,14 +127,14 @@ df <- df[!(is.na(df$gender)), ]
 breeds <- as.data.frame(table(df$Breed))
 breeds <- breeds[order(-breeds$Freq),]
 row.names(breeds) <- NULL
-topbreeds <- breeds$Var1[1:30] #top 50 breeds
+topbreeds <- breeds$Var1[1:30] #top 30 breeds
 df$newBreed <- (ifelse(df$Breed %in% topbreeds, df$Breed, "Other"))
 
 #Look at top colors
 colors <- as.data.frame(table(df$Color))
 colors <- colors[order(-colors$Freq),]
 row.names(colors) <- NULL
-topcolors <- colors[1:30, "Var1"] #top 50 colors
+topcolors <- colors[1:30, "Var1"] #top 30 colors
 df$newColor <- ifelse(df$Color %in% topcolors, df$Color, "Other")
 
 ```

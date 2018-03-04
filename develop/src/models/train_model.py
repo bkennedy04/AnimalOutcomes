@@ -5,6 +5,7 @@ import math
 from sklearn.ensemble import RandomForestClassifier
 import pickle
 
+
 def fit_randomforest(x_train, y_train, max_features="auto", num_trees=500, SEED=12345):
 	"""returns trained random forest model
 
@@ -38,21 +39,29 @@ def prepare_data(train, categorical):
 	train_binary_dummy = pd.get_dummies(train_binary, columns = categorical)
 
 	return train_binary_dummy
+	
 
 if __name__ == "__main__":
 	#read in processed data and format
 	train = pd.read_csv('..\\..\\data\\processed\\trainset.csv')
-	categorical = ['gender', 'weekday', 'newBreed', 'newColor'] 
+	categorical = ['gender', 'hasName', 'isDog', 'isMix', 'month', 'weekday', 'hourOfDay', 'isFixed', 'newBreed', 'newColor']  
 	train_binary_dummy = prepare_data(train, categorical)
+	
 	#train model
 	y_train = train_binary_dummy['OutcomeType']
 	x_train = train_binary_dummy.drop('OutcomeType', axis=1)
 	model_rf = fit_randomforest(x_train, y_train)
+	columns = x_train.columns
 	
 	#save trained model as pickle for later use
 	filename = 'model_v1.pk'
 	with open(''+filename, 'wb') as file:
 		pickle.dump(model_rf, file)
+		
+	#save trained columns as pickle for later use
+	filename = 'train_columns.pk'
+	with open(''+filename, 'wb') as file:
+		pickle.dump(columns, file)
 
 
 
