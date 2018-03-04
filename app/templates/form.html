@@ -1,8 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-	<div class="card" style="margin: 10px 0;">
-		<div class="card-body">
+
 		<h3>Please submit your data below:</h3>
 		<form action="" method="post">
 			{{ form.hidden_tag() }}
@@ -54,6 +53,7 @@
 				{% for error in form.weekday.errors %}
 				   <span style="color: red;">[{{ error }}]</span>
 				{% endfor %}
+			</div>
 			<div class="form-group">
 				{{ form.hourOfDay.label }}<br>
 				{{ form.hourOfDay }}<br>
@@ -83,9 +83,7 @@
 				{% endfor %}
 			</div>
 			<button type="submit" class="btn btn-primary">Submit</button>
-			
 
 		</form>
-		</div>
-	</div>
+
 {% endblock %}

@@ -8,12 +8,12 @@ import sys
 import os
 from src.models import predict_model
 
-@app.route('/')
-@app.route('/index')
+@app.route('/results')
 def index():
 	return render_template('index.html')
 	
-@app.route('/form', methods=['Get', 'POST'])
+@app.route('/', methods=['Get', 'POST'])
+@app.route('/index', methods=['Get', 'POST'])
 def form():
 	form = DataForm()
 	if form.validate_on_submit():
@@ -53,14 +53,23 @@ def form():
 		#predict using trained model
 		model = predict_model.load_model()
 		mycols = set(test.columns).difference(set(train_columns))
-
-		app.logger.error(set(test.columns))
-		app.logger.error(set(test.columns))
-
 		predicted = pd.DataFrame(model.predict_proba(test))
-
-		
+		outcome_class = model.predict(test)
 		predicted.columns = ['Adoption', 'Died', 'Euthanasia', 'Return_to_owner', 'Transfer']
 		
-		return render_template('index.html', adoption=predicted.Adoption, died=predicted.Died, euthanasia=predicted.Euthanasia, return_to_owner=predicted.Return_to_owner, transfer=predicted.Transfer)                                                                               
+		probs = [predicted.iloc[0]['Adoption'], predicted.iloc[0]['Died'], predicted.iloc[0]['Euthanasia'], predicted.iloc[0]['Return_to_owner'], predicted.iloc[0]['Transfer']]                                                  
+		
+		message=''
+		if(outcome_class == 'Adoption'):
+			message += 'Congrats, it looks like adoption is likely! :)'
+		elif(outcome_class == 'Died'):
+			message += 'Uh oh, it looks like death is likely :('
+		elif(outcome_class == 'Euthanasia'):
+			message += 'Uh oh, it looks like euthanasia is likely :('
+		elif(outcome_class == 'Return_to_owner'):
+			message += 'Congrats, it looks like returning to owner is likely!'
+		else:
+			message += 'It looks like transfer is likely.'
+		
+		return render_template('index.html', adoption=predicted.iloc[0]['Adoption'], died=predicted.iloc[0]['Died'], euthanasia=predicted.iloc[0]['Euthanasia'], return_to_owner=predicted.iloc[0]['Return_to_owner'], transfer=predicted.iloc[0]['Transfer'], message=message)                                                                               
 	return render_template('form.html', title='Enter Data', form=form)                                                        

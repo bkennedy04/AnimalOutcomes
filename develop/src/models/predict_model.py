@@ -4,18 +4,37 @@ import os
 
 
 def load_columns(path='./'):
+	"""returns list of training set columns to validate against test set
+
+	:returns: training set columns
+
+	"""
 	with open(os.path.dirname(__file__)+"\\train_columns.pk", "rb") as input_file:
 		train_columns = pickle.load(input_file)
 	
 	return train_columns
 
 def load_model(path='./'):
+	"""returns trained model loaded in from pickle file
+
+	:returns: training model
+
+	"""
 	with open(os.path.dirname(__file__)+"\\model_v1.pk", "rb") as input_file:
 		model_rf = pickle.load(input_file)
 	
 	return model_rf
 
 def test(data, model):
+	"""returns data frame of probabilities after predicting on trained model
+
+	:param data: test data set to predict on 
+	:param model: trained model to use to predict test set outcomes
+	:type arg1: pandas dataframe
+	:type arg2: trained model
+	:returns: dataframe of probabilities
+
+	"""	
 	predicted = pd.DataFrame(model.predict_proba(test_binary_dummy))
 	predicted.columns = ['Adoption', 'Died', 'Euthanasia', 'Return_to_owner', 'Transfer']
 	
