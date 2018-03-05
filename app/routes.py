@@ -60,16 +60,22 @@ def form():
 		probs = [predicted.iloc[0]['Adoption'], predicted.iloc[0]['Died'], predicted.iloc[0]['Euthanasia'], predicted.iloc[0]['Return_to_owner'], predicted.iloc[0]['Transfer']]                                                  
 		
 		message=''
+		alert=''
 		if(outcome_class == 'Adoption'):
 			message += 'Congrats, it looks like adoption is likely! :)'
+			alert += 'success'
 		elif(outcome_class == 'Died'):
 			message += 'Uh oh, it looks like death is likely :('
+			alert += 'danger'
 		elif(outcome_class == 'Euthanasia'):
 			message += 'Uh oh, it looks like euthanasia is likely :('
+			alert += 'danger'
 		elif(outcome_class == 'Return_to_owner'):
 			message += 'Congrats, it looks like returning to owner is likely!'
+			alert += 'success'
 		else:
 			message += 'It looks like transfer is likely.'
+			alert += 'warning'
 		
-		return render_template('index.html', adoption=predicted.iloc[0]['Adoption'], died=predicted.iloc[0]['Died'], euthanasia=predicted.iloc[0]['Euthanasia'], return_to_owner=predicted.iloc[0]['Return_to_owner'], transfer=predicted.iloc[0]['Transfer'], message=message)                                                                               
+		return render_template('index.html', adoption=predicted.iloc[0]['Adoption'], died=predicted.iloc[0]['Died'], euthanasia=predicted.iloc[0]['Euthanasia'], return_to_owner=predicted.iloc[0]['Return_to_owner'], transfer=predicted.iloc[0]['Transfer'], message=message, alert=alert)                                                                               
 	return render_template('form.html', title='Enter Data', form=form)                                                        

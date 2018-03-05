@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-	<h1> {{ message }} </h1>
-	<h2>
+	<div class="alert alert-{{ alert }}" role="alert"><h1> {{ message }} </h1></div>
+	<h3>
 		<ul>
 		<li>Adoption: {{ adoption }}.</li>
 		<li>Died: {{ died }}. </li>
@@ -10,7 +10,7 @@
 		<li>Return to owner: {{ return_to_owner }}. </li>
 		<li>Transfer: {{ transfer }} </li>
 		</ul>
-	</h2>
+	</h3>
 	<div>
 		<canvas id="myChart" width="200px" height="200px"></canvas>
 	</div>
@@ -48,6 +48,10 @@
 						max: 1
 					}
 				}]
+			},
+			legend: {
+				display: true,
+				position: 'top'
 			}
 		}
 	});

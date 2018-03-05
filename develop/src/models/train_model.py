@@ -43,7 +43,7 @@ def prepare_data(train, categorical):
 
 if __name__ == "__main__":
 	#read in processed data and format
-	train = pd.read_csv('..\\..\\data\\processed\\trainset.csv')
+	train = pd.read_csv('../../data/processed/trainset.csv')
 	categorical = ['gender', 'hasName', 'isDog', 'isMix', 'month', 'weekday', 'hourOfDay', 'isFixed', 'newBreed', 'newColor']  
 	train_binary_dummy = prepare_data(train, categorical)
 	

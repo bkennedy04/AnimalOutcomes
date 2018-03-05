@@ -11,8 +11,8 @@ class User(db.Model):
 	weekday = db.Column(db.String, index=True)
 	hourOfDay = db.Column(db.String, index=True)
 	isFixed = db.Column(db.String, index=True)
-	newBreed = db.Column(db.String, index=True)
-	newColor = db.Column(db.String, index=True)
+	newBreed = db.Column(db.String(100), index=True)
+	newColor = db.Column(db.String(100), index=True)
 	
 	def __repr__(self):
 		return '<ID {}>'.format(self.id)
