@@ -13,7 +13,7 @@ Project Organization
 		├── Makefile           <- Makefile with commands like `make data` or `make train`
 		├── README.md          <- The top-level README for developers using this project.
 		├── data
-		│   ├── external       <- The original data from third party sources.
+		│   ├── external       <- The original data from [kaggle](https://www.kaggle.com/c/shelter-animal-outcomes/data "Animal Outcomes Data").
 		│   └── processed      <- The final, transformed canonical data sets for modeling.
 		│   
 		│
