@@ -16,11 +16,7 @@ def index():
 @app.route('/index', methods=['Get', 'POST'])
 def form():
 	form = DataForm()
-	if form.validate_on_submit():
-		#user = User(gender=form.gender.data, hasName=form.hasName.data, ageWeeks=form.ageWeeks.data, animal=form.animal.data, isMix = form.isMix.data, month = form.month.data, weekday = form.weekday.data, hourOfDay = form.hourOfDay.data, isFixed = form.isFixed.data)
-		#db.session.add(user)                                                                                                  
-		#db.session.commit()  
-		
+	if form.validate_on_submit():		
 		gender=request.form['gender']
 		hasName=int(request.form['hasName'])
 		ageWeeks=request.form['ageWeeks']
@@ -76,6 +72,15 @@ def form():
 		else:
 			message += 'It looks like transfer is likely.'
 			alert += 'warning'
+			
+		#push user input and predicted class to database
+		user = User(gender=gender, hasName=hasName, ageWeeks=ageWeeks, animal=animal, isMix=isMix, month=month, weekday=weekday, hourOfDay = hourOfDay, isFixed = isFixed, newBreed=newBreed, newColor=newColor, outcome=outcome_class)
+		db.session.add(user)                                                                                                                                                                                                                                              
+		db.session.commit()                                                                                                                                                                                                                                               
 		
-		return render_template('index.html', adoption=predicted.iloc[0]['Adoption'], died=predicted.iloc[0]['Died'], euthanasia=predicted.iloc[0]['Euthanasia'], return_to_owner=predicted.iloc[0]['Return_to_owner'], transfer=predicted.iloc[0]['Transfer'], message=message, alert=alert)                                                                               
-	return render_template('form.html', title='Enter Data', form=form)                                                        
+		return render_template('index.html', adoption=round(predicted.iloc[0]['Adoption'],4), died=round(predicted.iloc[0]['Died'],4), euthanasia=round(predicted.iloc[0]['Euthanasia'],4), return_to_owner=round(predicted.iloc[0]['Return_to_owner'],4), transfer=round(predicted.iloc[0]['Transfer'],4), message=message, alert=alert)                                                                               
+	return render_template('form.html', title='Enter Data', form=form)     
+
+@app.route('/about')
+def about():	
+	return render_template('about.html')

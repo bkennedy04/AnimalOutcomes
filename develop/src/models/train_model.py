@@ -25,7 +25,7 @@ def prepare_data(train, categorical):
 	"""returns transformed dataframe, suitable for input in a predictive model
 
 	:param train: dataframe containing response and predictor variables for predictive model
-	:param categoriacl: list of column names needed to be transformed to category type
+	:param categorical: list of column names needed to be transformed to category type
 	:type arg1: pandas dataframe
 	:type arg2: list
 	:returns: transformed dataframe

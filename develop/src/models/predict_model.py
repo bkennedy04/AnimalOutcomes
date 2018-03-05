@@ -4,8 +4,8 @@ import os
 
 
 def load_columns(path='./'):
-	"""returns list of training set columns to validate against test set
-
+	"""returns list of training set columns to validate against test set, loaded from pickle file
+	:param path: path to pickle file 
 	:returns: training set columns
 
 	"""
@@ -16,7 +16,7 @@ def load_columns(path='./'):
 
 def load_model(path='./'):
 	"""returns trained model loaded in from pickle file
-
+	:param path: path to pickle file
 	:returns: training model
 
 	"""

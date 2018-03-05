@@ -1,0 +1,30 @@
+---
+title: "About - Animal Outcomes"
+author: "Brooke Kennedy"
+date: "2018"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Animal Outcomes Overview
+Every year, approximately 7.6 million companion animals end up in US shelters. Many animals are given up as unwanted by their owners, while others are picked up after getting lost or taken out of cruelty situations. Many of these animals find forever families to take them home, but just as many are not so lucky. 2.7 million dogs and cats are euthanized in the US every year. The animal outcomes prediction uses a random forest model trained on historical data from the Austin Animal Center in Austin, Texas. This data can be downloaded [here](https://www.kaggle.com/c/shelter-animal-outcomes/data).
+
+## A look at the data
+Here is a sample of the original training data:
+```{r echo=FALSE}
+train <- read.csv("C:/Users/bck00/Documents/GitHub/animaloutcomes/develop/data/external/train.csv", strip.white = TRUE, na.strings=c("","NA"))
+head(train)
+```
+
+
+
+
+
+
+
+
+
+

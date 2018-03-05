@@ -13,6 +13,7 @@ class User(db.Model):
 	isFixed = db.Column(db.String, index=True)
 	newBreed = db.Column(db.String(100), index=True)
 	newColor = db.Column(db.String(100), index=True)
+	outcome = db.Column(db.String(100), index=True)
 	
 	def __repr__(self):
-		return '<ID {}>'.format(self.id)
+		return '<ID {}>'.format(self.outcome)

@@ -8,7 +8,9 @@ Welcome to AnimalOutcomes's documentation!
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents: models
+
+   train
+   predict
 
 Indices and tables
 ==================
