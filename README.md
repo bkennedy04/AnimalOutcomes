@@ -1,7 +1,7 @@
 Animal Outcomes
 ==============================
 
-Predict the outcomes of an Austin animal shelter.
+Predict the outcomes of an Austin animal shelter. You can download the origional dataset [here](https://www.kaggle.com/c/shelter-animal-outcomes/data).
 
 Project Organization
 ------------
@@ -13,7 +13,7 @@ Project Organization
 		├── Makefile           <- Makefile with commands like `make data` or `make train`
 		├── README.md          <- The top-level README for developers using this project.
 		├── data
-		│   ├── external       <- The original kaggle [dataset](https://www.kaggle.com/c/shelter-animal-outcomes/data).
+		│   ├── external       <- The original kaggle dataset.
 		│   └── processed      <- The final, transformed canonical data sets for modeling
 		│   
 		│
