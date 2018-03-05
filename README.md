@@ -1,7 +1,7 @@
 Animal Outcomes
 ==============================
 
-Predict the outcomes of an Austin animal shelter. You can download the origional dataset [here](https://www.kaggle.com/c/shelter-animal-outcomes/data).
+Predict the outcomes of an Austin animal shelter. You can download the original dataset [here](https://www.kaggle.com/c/shelter-animal-outcomes/data).
 
 Project Organization
 ------------
