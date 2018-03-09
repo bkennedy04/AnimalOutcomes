@@ -1,12 +1,19 @@
 branch-defaults:
   Sprint4:
-    environment: null
+    environment: animaloutcomes-dev
     group_suffix: null
+environment-defaults:
+  animalenv:
+    branch: null
+    repository: null
+  animaloutcomes-dev:
+    branch: null
+    repository: null
 global:
   application_name: animaloutcomes
   branch: null
   default_ec2_keyname: flaskpair
-  default_platform: Python 3.6
+  default_platform: python
   default_region: us-west-2
   include_git_submodules: true
   instance_profile: null
