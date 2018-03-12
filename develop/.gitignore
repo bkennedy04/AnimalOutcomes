@@ -78,8 +78,6 @@ target/
 # exclude data from source control by default
 /data/
 
-# Pickle files
-*.pk
 
 # csv files
 *.csv

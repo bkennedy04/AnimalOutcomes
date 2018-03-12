@@ -1,5 +1,6 @@
 import pandas as pd
 import pickle
+import gzip
 import os
 
 
@@ -20,8 +21,9 @@ def load_model(path='./'):
 	:returns: training model
 
 	"""
-	with open(os.path.dirname(__file__)+"/model_v1.pk", "rb") as input_file:
+	with gzip.open(os.path.dirname(__file__)+"/model_v1.pk", "rb") as input_file:
 		model_rf = pickle.load(input_file)
+	input_file.close()
 	
 	return model_rf
 

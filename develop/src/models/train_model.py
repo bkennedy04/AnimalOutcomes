@@ -4,6 +4,7 @@ import numpy as np
 import math
 from sklearn.ensemble import RandomForestClassifier
 import pickle
+import gzip
 
 
 def fit_randomforest(x_train, y_train, max_features="auto", num_trees=500, SEED=12345):
@@ -55,13 +56,15 @@ if __name__ == "__main__":
 	
 	#save trained model as pickle for later use
 	filename = 'model_v1.pk'
-	with open(''+filename, 'wb') as file:
+	with gzip.open(''+filename, 'wb') as file:
 		pickle.dump(model_rf, file)
+	file.close()
 		
 	#save trained columns as pickle for later use
 	filename = 'train_columns.pk'
 	with open(''+filename, 'wb') as file:
 		pickle.dump(columns, file)
+	file.close()
 
 
 
