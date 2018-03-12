@@ -1,12 +1,12 @@
 from flask import render_template, request, flash, redirect, url_for
-from app import app, db
-from app.forms import DataForm
-from app.models import User
+from animaloutcomes.app import app, db
+from animaloutcomes.app.forms import DataForm
+from animaloutcomes.app.models import User
 import pandas as pd
 import numpy as np
 import sys
 import os
-from src.models import predict_model
+from animaloutcomes.develop.src.models import predict_model
 
 @app.route('/results')
 def index():

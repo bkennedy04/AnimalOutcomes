@@ -1,1 +1,1 @@
-from app import app
+from animaloutcomes.app import app
