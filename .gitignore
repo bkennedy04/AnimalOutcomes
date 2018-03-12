@@ -1,1 +1,5 @@
-./config.py
+# Config file
+config.py
+
+
+__pycache__/
