@@ -9,7 +9,7 @@ def load_columns(path='./'):
 	:returns: training set columns
 
 	"""
-	with open(os.path.dirname(__file__)+"\\train_columns.pk", "rb") as input_file:
+	with open(os.path.dirname(__file__)+"/train_columns.pk", "rb") as input_file:
 		train_columns = pickle.load(input_file)
 	
 	return train_columns
@@ -20,7 +20,7 @@ def load_model(path='./'):
 	:returns: training model
 
 	"""
-	with open(os.path.dirname(__file__)+"\\model_v1.pk", "rb") as input_file:
+	with open(os.path.dirname(__file__)+"/model_v1.pk", "rb") as input_file:
 		model_rf = pickle.load(input_file)
 	
 	return model_rf
@@ -61,7 +61,7 @@ def prepare_data(train, categorical):
 	
 if __name__ == "__main__":
 	#read in test data and format
-	test = pd.read_csv('..\\..\\data\\processed\\testset.csv')
+	test = pd.read_csv('../../data/processed/testset.csv')
 	categorical = ['gender', 'hasName', 'isDog', 'isMix', 'month', 'weekday', 'hourOfDay', 'isFixed', 'newBreed', 'newColor']  
 	test_binary_dummy = prepare_data(test, categorical)
 	test_binary_dummy.drop('OutcomeType', axis=1, inplace=True)
