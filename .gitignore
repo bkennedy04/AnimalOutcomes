@@ -1,0 +1,11 @@
+# Config file
+config.py
+
+# Pycache
+__pycache__/
+
+# idea
+.idea/
+
+# local database
+app.db
