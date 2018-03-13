@@ -3,11 +3,12 @@ import pandas as pd
 import numpy as np
 import math
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.externals import joblib
 import pickle
 import gzip
 
 
-def fit_randomforest(x_train, y_train, max_features="auto", num_trees=500, SEED=12345):
+def fit_randomforest(x_train, y_train, max_features="auto", num_trees=200, SEED=12345):
 	"""returns trained random forest model
 
 	:param x_train: predictor variable dataframe that has been transformed into suitable format
@@ -22,6 +23,7 @@ def fit_randomforest(x_train, y_train, max_features="auto", num_trees=500, SEED=
 	
 	return model
 
+	
 def prepare_data(train, categorical):
 	"""returns transformed dataframe, suitable for input in a predictive model
 
@@ -54,10 +56,10 @@ if __name__ == "__main__":
 	model_rf = fit_randomforest(x_train, y_train)
 	columns = x_train.columns
 	
-	#save trained model as pickle for later use
+	#save trained model as joblib pickle for later use
 	filename = 'model_v1.pk'
-	with gzip.open(''+filename, 'wb') as file:
-		pickle.dump(model_rf, file)
+	with gzip.open(''+filename+'.gz', 'wb') as file:
+		joblib.dump(model_rf, file)
 	file.close()
 		
 	#save trained columns as pickle for later use

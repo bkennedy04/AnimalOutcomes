@@ -1,7 +1,8 @@
 import pandas as pd
 import pickle
-import gzip
 import os
+from sklearn.externals import joblib
+import gzip
 
 
 def load_columns(path='./'):
@@ -12,6 +13,7 @@ def load_columns(path='./'):
 	"""
 	with open(os.path.dirname(__file__)+"/train_columns.pk", "rb") as input_file:
 		train_columns = pickle.load(input_file)
+	input_file.close()
 	
 	return train_columns
 
@@ -21,8 +23,8 @@ def load_model(path='./'):
 	:returns: training model
 
 	"""
-	with gzip.open(os.path.dirname(__file__)+"/model_v1.pk", "rb") as input_file:
-		model_rf = pickle.load(input_file)
+	with gzip.open(os.path.dirname(__file__)+"/model_v1.pk.gz", "rb") as input_file:
+		model_rf = joblib.load(input_file)
 	input_file.close()
 	
 	return model_rf
