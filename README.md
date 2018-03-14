@@ -12,7 +12,7 @@ Project Organization
 		|
 		├── Makefile           		<- Makefile with commands like `make data` or `make train`
 		├── data
-		│   ├── external       		<- The original kaggle dataset.
+		│   ├── external       		<- The original datasets downloaded from kaggle
 		│   └── processed      		<- The final, transformed canonical data sets for modeling
 		│   
 		│
@@ -38,7 +38,7 @@ Project Organization
 		    │   └── make_dataset.py
 		    │ 
 		    ├── features      		 <- Scripts to turn raw data into features for modeling
-		    │   └── build_features.R
+		    │   └── build_features.R	 <- R script to read in external data, build features, and export processed data
 		    │
 		    └── models         		<- Scripts to train models and then use trained models to make predictions
 		        │                 
