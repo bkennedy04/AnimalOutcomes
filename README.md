@@ -9,9 +9,8 @@ Project Organization
 	│   ├── static      
 	│   └── templates
 	└── develop          	       		<- Files for developing predictive model
-		├── LICENSE
+		|
 		├── Makefile           		<- Makefile with commands like `make data` or `make train`
-		├── README.md          		<- The top-level README for developers using this project.
 		├── data
 		│   ├── external       		<- The original kaggle dataset.
 		│   └── processed      		<- The final, transformed canonical data sets for modeling
