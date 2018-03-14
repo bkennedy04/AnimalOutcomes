@@ -4,9 +4,8 @@ from app.forms import DataForm
 from app.models import User
 import pandas as pd
 import numpy as np
-import sys
-import os
 from develop.src.models import predict_model
+import develop.models
 
 @app.route('/results')
 def index():
@@ -52,7 +51,6 @@ def form():
 		predicted = pd.DataFrame(model.predict_proba(test))
 		outcome_class = model.predict(test)[0]
 		predicted.columns = ['Adoption', 'Died', 'Euthanasia', 'Return_to_owner', 'Transfer']
-		
 		probs = [predicted.iloc[0]['Adoption'], predicted.iloc[0]['Died'], predicted.iloc[0]['Euthanasia'], predicted.iloc[0]['Return_to_owner'], predicted.iloc[0]['Transfer']]                                                  
 		
 		message=''
