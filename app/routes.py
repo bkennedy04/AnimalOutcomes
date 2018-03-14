@@ -50,7 +50,7 @@ def form():
 		model = predict_model.load_model()
 		mycols = set(test.columns).difference(set(train_columns))
 		predicted = pd.DataFrame(model.predict_proba(test))
-		outcome_class = model.predict(test)
+		outcome_class = model.predict(test)[0]
 		predicted.columns = ['Adoption', 'Died', 'Euthanasia', 'Return_to_owner', 'Transfer']
 		
 		probs = [predicted.iloc[0]['Adoption'], predicted.iloc[0]['Died'], predicted.iloc[0]['Euthanasia'], predicted.iloc[0]['Return_to_owner'], predicted.iloc[0]['Transfer']]                                                  
