@@ -74,7 +74,7 @@ if __name__ == "__main__":
 	test_binary_dummy = prepare_data(test, categorical)
 	test_binary_dummy.drop('OutcomeType', axis=1, inplace=True)
 	model = load_model()
-	#results = test(test_binary_dummy, model)
+	#results = test(test_binary_dummy, model) #gives dataframe not callable error
 	predicted = pd.DataFrame(model.predict_proba(test_binary_dummy))
 	predicted.columns = ['Adoption', 'Died', 'Euthanasia', 'Return_to_owner', 'Transfer']
 	print(predicted)
