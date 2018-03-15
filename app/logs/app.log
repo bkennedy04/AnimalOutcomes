@@ -1,0 +1,11 @@
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:root:User input received.
+INFO:root:Trained model loaded.
+INFO:root:Predicted outcome using trained model and user input.
+INFO:root:User input and prediction commited to database.
+INFO:werkzeug:127.0.0.1 - - [15/Mar/2018 12:50:35] "POST / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Mar/2018 12:50:36] "GET /static/favicon.ico HTTP/1.1" 200 -
+INFO:root:User visited the about page.
+INFO:werkzeug:127.0.0.1 - - [15/Mar/2018 12:50:52] "GET /about HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Mar/2018 12:50:52] "GET /static/About.pdf HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [15/Mar/2018 12:51:08] "GET /index HTTP/1.1" 200 -

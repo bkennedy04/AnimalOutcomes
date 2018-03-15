@@ -2,6 +2,8 @@ from flask_wtf import FlaskForm
 from wtforms import SelectField, RadioField, StringField, DecimalField, BooleanField, SubmitField, IntegerField
 from wtforms.validators import DataRequired
 
+
+# Create user form
 class DataForm(FlaskForm):
 	gender = SelectField('Gender of animal:', choices=[('Male','Male'), ('Female','Female'), ('Unknown','Unknown')])
 	hasName = RadioField('Does the animal have a name?', choices=[('1','yes'), ('0','no')])
