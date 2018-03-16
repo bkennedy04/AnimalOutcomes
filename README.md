@@ -42,7 +42,7 @@ Project Organization
 		        └── train_model.py      <- Trains and serializes model
 		
 
-Suggested Steps		
+Suggested Steps	to Reproduce	
 --------
 
 1. Clone AnimalOutcomes repository.

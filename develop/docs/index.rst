@@ -11,6 +11,7 @@ Welcome to AnimalOutcomes's documentation!
 
    train
    predict
+   routes
 
 Indices and tables
 ==================

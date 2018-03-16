@@ -1,4 +1,4 @@
-Predict
+Predict Model
 =============================
 
 Use trained model to predict on a test set.
