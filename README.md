@@ -23,7 +23,9 @@ Project Organization
 	│	│    ├── model_v1.pk.gz			<- Compressed joblib pickle model
 	│	│    └── train_columns.pk		<- Pickle of training set columns needed for prediction
 	│	│
-	│	├── notebooks          			<- Jupyter notebooks and R markdown. Naming convention is a number (for 		│	│						ordering), the creator's initials, and a short `-` delimited description	│	│						e.g. `1.0-jqp-initial-data-exploration`.
+	│	├── notebooks          			<- Jupyter notebooks and R markdown. Naming convention is a number (for 
+	│	│						ordering), the creator's initials, and a short `-` delimited
+	│	│						description, e.g. `1.0-jqp-initial-data-exploration`.
 	│	│
 	│	├── references        	 		<- Data dictionaries, manuals, and all other explanatory materials.
 	│	│
