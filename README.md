@@ -1,7 +1,7 @@
 Animal Outcomes
 ==============================
 
-Web app to predict shelter animal outcomes. You can download the original dataset [here](https://www.kaggle.com/c/shelter-animal-outcomes/data).
+Flask web app to predict shelter animal outcomes using Random Forest.
 
 Project Organization
 ------------
