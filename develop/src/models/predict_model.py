@@ -3,6 +3,7 @@ import pickle
 import os
 from sklearn.externals import joblib
 import gzip
+import logging
 
 
 def load_columns(path='../../models/'):
@@ -71,14 +72,21 @@ def prepare_data(train, categorical):
 
 if __name__ == "__main__":
 
+    # Create logging file if DNE otherwise append to it
+    logging.basicConfig(filename="../../logs/predict.log", level=logging.INFO)
+
     # Read in test data set and format
     test = pd.read_csv('../../data/processed/testset.csv')
+    logging.info("Test data loaded.")
     categorical = ['gender', 'hasName', 'isDog', 'isMix', 'month', 'weekday', 'hourOfDay', 'isFixed', 'newBreed', 'newColor']
     test_binary_dummy = prepare_data(test, categorical)
+    logging.info("Data transformed for prediction.")
     test_binary_dummy.drop('OutcomeType', axis=1, inplace=True)
     model = load_model()
+    logging.info("Trained model loaded.")
     # results = test(test_binary_dummy, model) # gives dataframe not callable error
     predicted = pd.DataFrame(model.predict_proba(test_binary_dummy))
+    logging.info('Prediction successful.')
     predicted.columns = ['Adoption', 'Died', 'Euthanasia', 'Return_to_owner', 'Transfer']
     print(predicted)
 

@@ -45,8 +45,62 @@ Project Organization
 		        ├── predict_model.py	<- Functionality to load serialized model and model columns
 		        └── train_model.py      <- Trains and serializes model
 		
-		
 
+Suggested Steps		
+--------
+
+1. Clone AnimalOutcomes repository.
+
+2. Download data from [here](https://www.kaggle.com/c/shelter-animal-outcomes/data) and extract and save in AnimalOutcomes/develop/data/external as 'train.csv' and 'test.csv'.
+
+3. Create conda environment. 
+
+    `conda create -n myenv python=3`
+    
+4. Activate environment.
+
+    `source activate myenv`
+	
+   Windows Users:
+
+    `activate myenv`
+
+5. Install required packages. 
+
+    `pip install -r requirements.txt`
+
+6. Navigate to AnimalOutcomes/develop/src/features and run build_features.R script. This will process the external data and export to AnimalOutcomes/develop/data/processed.
+
+	`Rscript build_features.R`
+	
+7. Navigate to AnimalOutcomes/develop/src/models and run train_model.py. This will train random forest model using processed data and serialize model for later use.
+
+	`python train_model.py`
+	
+8. Now run predict_model.py to make sure everything is working as expected.
+
+	`python predict_model.py`
+	
+9. Navigate to AnimalOutcomes/ and create a config.py file with the information necessary to create your database connection. **Do not commit this file.** 
+     
+    ```python
+	import os
+	basedir = os.path.abspath(os.path.dirname(__file__))
+
+	class Config(object):
+		SECRET_KEY = os.environ.get('SECRET_KEY') or 'you-will-never-guess'
+		SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or 'sqlite:///' + os.path.join(basedir, 'app.db')
+		# If using AWS RDS fill in line below and replace line above.
+		# SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://<user>:<password>@<endpoint>/<database name>'
+		SQLALCHEMY_TRACK_MODIFICATIONS = False
+    ``` 
+10. Create the database.
+
+	`python db_create.py`
+	
+11. You are now ready to run the flask app.
+
+	`python application.py`
 
 --------
 

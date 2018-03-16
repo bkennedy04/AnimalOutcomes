@@ -6,6 +6,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.externals import joblib
 import pickle
 import gzip
+import logging
 
 
 def fit_randomforest(x_train, y_train, max_features="auto", num_trees=250, SEED=12345):
@@ -49,28 +50,36 @@ def prepare_data(train, categorical):
 
 if __name__ == "__main__":
 
+    # Create logging file if DNE otherwise append to it
+    logging.basicConfig(filename="../../logs/train.log", level=logging.INFO)
+
     # Read in processed data and format
     train = pd.read_csv('../../data/processed/trainset.csv')
+    logging.info("Processed data loaded.")
     categorical = ['gender', 'hasName', 'isDog', 'isMix', 'month', 'weekday', 'hourOfDay', 'isFixed', 'newBreed', 'newColor']
     train_binary_dummy = prepare_data(train, categorical)
+    logging.info("Data transformed for modeling.")
 
     # Train model
     y_train = train_binary_dummy['OutcomeType']
     x_train = train_binary_dummy.drop('OutcomeType', axis=1)
+    logging.info("Split into response and predictor dataframes.")
     model_rf = fit_randomforest(x_train, y_train)
     columns = x_train.columns
 
-    # Save trained model as joblib pickle for later use
+    # Save trained model as compressed joblib pickle for later use
     filename = 'model_v1.pk'
     with gzip.open('../../models/'+filename+'.gz', 'wb') as file:
         joblib.dump(model_rf, file)
     file.close()
+    logging.info("Save trained model as compressed joblib pickle.")
 
     # Save trained columns as pickle for later use
     filename = 'train_columns.pk'
     with open('../../models/'+filename, 'wb') as file:
         pickle.dump(columns, file)
     file.close()
+    logging.info("Save trained columns as pickle.")
 
 
 
