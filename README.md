@@ -37,7 +37,8 @@ Project Organization
 	│	│    │   └── build_features.R		<- R script to read in external data, build features, and export processed data
 	│	│    │
 	│	│    └── models         		<- Scripts to train models and then use trained models to make predictions
-	│	│        │                 
+	│	│        │   
+	│ 	│ 	 ├── __init__.py    		<- Makes models a Python module
 	│	│        ├── predict_model.py		<- Functionality to load serialized model and model columns
 	│	│        └── train_model.py     	<- Trains and serializes model
 	│	│ 
