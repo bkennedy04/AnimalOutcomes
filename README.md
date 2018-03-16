@@ -18,7 +18,7 @@ Project Organization
 	│	│			
 	│	├── docs            			<- A default Sphinx project; see sphinx-doc.org for details
 	│	│			
-	│	├── logs						<- Log files generated during development
+	│	├── logs				<- Log files generated during development
 	│	│
 	│	├── models            	 		<- Trained and serialized models to use for model predictions
 	│	│    ├── model_v1.pk.gz			<- Compressed joblib pickle model
@@ -34,23 +34,23 @@ Project Organization
 	│	│    ├── __init__.py    		<- Makes src a Python module
 	│	│    │ 
 	│	│    ├── features      			<- Scripts to turn raw data into features for modeling
-	│	│    │   └── build_features.R	<- R script to read in external data, build features, and export processed data
+	│	│    │   └── build_features.R		<- R script to read in external data, build features, and export processed data
 	│	│    │
 	│	│    └── models         		<- Scripts to train models and then use trained models to make predictions
 	│	│        │                 
-	│	│        ├── predict_model.py	<- Functionality to load serialized model and model columns
-	│	│        └── train_model.py     <- Trains and serializes model
+	│	│        ├── predict_model.py		<- Functionality to load serialized model and model columns
+	│	│        └── train_model.py     	<- Trains and serializes model
 	│	│ 
-	│ 	├── tests						<- Unit tests
-	│ 	├── __init__.py    				<- Makes develop a Python module
+	│ 	├── tests				<- Unit tests
+	│ 	├── __init__.py    			<- Makes develop a Python module
 	│	└── .gitignore	
 	│
-	├── application.py              	<- Flask app setup       
-	├── db_create.py             		<- Script to create database 
+	├── application.py              		<- Flask app setup       
+	├── db_create.py             			<- Script to create database 
 	├── README.md              			<- Top level readme
-	├── requirements.txt            	<- The requirements file for reproducing the analysis environment, e.g.
+	├── requirements.txt            		<- The requirements file for reproducing the analysis environment, e.g.
 	│	                      	   			generated with `pip freeze > requirements.txt`
-	├── __init__.py              		<- Makes root directory a Python module
+	├── __init__.py              			<- Makes root directory a Python module
 	└── .gitignore					
 	
 Suggested Steps	to Reproduce	
