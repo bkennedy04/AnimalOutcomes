@@ -34,8 +34,8 @@ def load_model(path='../../models/'):
     return model_rf
 
 
-def test(data, model):
-    """ Returns data frame of probabilities after predicting on trained model
+def predict_probs(data, model):
+    """ Returns data frame of probabilities after predicting on trained model in a format suitable for submission to kaggle competition
 
     :param data: test data set to predict on
     :param model: trained model to use to predict test set outcomes
@@ -44,13 +44,15 @@ def test(data, model):
     :returns: dataframe of probabilities
 
     """
-    predicted = pd.DataFrame(model.predict_proba(test_binary_dummy))
+    predicted = pd.DataFrame(model.predict_proba(data))
     predicted.columns = ['Adoption', 'Died', 'Euthanasia', 'Return_to_owner', 'Transfer']
+    predicted.reset_index()
+    predicted.index += 1
+    predicted.index.name = 'ID' 
+    return predicted
 
-    return predicted.reset_index()
 
-
-def prepare_data(train, categorical):
+def prepare_data(test, categorical):
     """ Returns transformed dataframe, suitable for input in a predictive model
 
     :param train: dataframe containing response and predictor variables for predictive model
@@ -61,13 +63,16 @@ def prepare_data(train, categorical):
 
     """
     # Convert data type as 'category'
-    train_binary = train.copy()
+    test_binary = test.copy()
     for i in categorical:
-        train_binary[i] = train_binary[i].astype('category')
+        test_binary[i] = test_binary[i].astype('category')
     # Create dummy variables
-    train_binary_dummy = pd.get_dummies(train_binary, columns = categorical)
+    test_binary_dummy = pd.get_dummies(test_binary, columns = categorical)
+    # If there is a column 'OutcomeType', drop it
+    if 'OutcomeType' in test_binary_dummy.columns:
+        test_binary_dummy.drop('OutcomeType', axis=1, inplace=True)
 
-    return train_binary_dummy
+    return test_binary_dummy
 
 
 if __name__ == "__main__":
@@ -76,17 +81,17 @@ if __name__ == "__main__":
     logging.basicConfig(filename="../../logs/predict.log", level=logging.INFO)
 
     # Read in test data set and format
-    test = pd.read_csv('../../data/processed/testset.csv')
+    testdata = pd.read_csv('../../data/processed/testset.csv')
     logging.info("Test data loaded.")
     categorical = ['gender', 'hasName', 'isDog', 'isMix', 'month', 'weekday', 'hourOfDay', 'isFixed', 'newBreed', 'newColor']
-    test_binary_dummy = prepare_data(test, categorical)
+    test_binary_dummy = prepare_data(testdata, categorical)
     logging.info("Data transformed for prediction.")
-    test_binary_dummy.drop('OutcomeType', axis=1, inplace=True)
     model = load_model()
     logging.info("Trained model loaded.")
-    # results = test(test_binary_dummy, model) # gives dataframe not callable error
-    predicted = pd.DataFrame(model.predict_proba(test_binary_dummy))
+	
+	# Create dataframe of predicted probabilities
+    results = predict_probs(test_binary_dummy, model)
     logging.info('Prediction successful.')
-    predicted.columns = ['Adoption', 'Died', 'Euthanasia', 'Return_to_owner', 'Transfer']
-    print(predicted)
+    print("Predicted probabilities:")
+    print(results.head())
 

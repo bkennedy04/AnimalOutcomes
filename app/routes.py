@@ -2,9 +2,10 @@ from flask import render_template, request, flash, redirect, url_for
 from app import app, db
 from app.forms import DataForm
 from app.models import User
+from develop.src.models.train_model import prepare_data
+from develop.src.models.predict_model import load_columns, load_model
 import pandas as pd
 import numpy as np
-from develop.src.models import predict_model
 import logging
 
 
@@ -45,8 +46,8 @@ def form():
 
         # Prepare data
         categorical = ['gender', 'hasName', 'isDog', 'isMix', 'month', 'weekday', 'hourOfDay', 'isFixed', 'newBreed', 'newColor']
-        test_binary_dummy = predict_model.prepare_data(test, categorical)
-        train_columns = predict_model.load_columns()
+        test_binary_dummy = prepare_data(test, categorical)
+        train_columns = load_columns()
         # Get missing columns in the training test
         missing_cols = set( train_columns ) - set( test_binary_dummy.columns )
         # Add missing columns in test set with default value equal to 0
@@ -56,7 +57,7 @@ def form():
         test = test_binary_dummy[train_columns]
 
         # Predict using trained model
-        model = predict_model.load_model()
+        model = load_model()
         logging.info('Trained model loaded.')
         predicted = pd.DataFrame(model.predict_proba(test))
         outcome_class = model.predict(test)[0]

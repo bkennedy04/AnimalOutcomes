@@ -5,16 +5,15 @@ Flask web app to predict shelter animal outcomes using Random Forest.
 
 Project Organization
 ------------
-	├── app	                       		<- Files for developing flask app
+	├── app	                       	<- Files for developing flask app
 	│   ├── static      
 	│   └── templates
-	└── develop          	       		<- Files for developing predictive model
+	└── develop          	       	<- Files for developing predictive model
 		|
 		├── Makefile           		<- Makefile with commands like `make data` or `make train`
 		├── data
 		│   ├── external       		<- The original datasets downloaded from kaggle
 		│   └── processed      		<- The final, transformed canonical data sets for modeling
-		│   
 		│
 		├── docs               		<- A default Sphinx project; see sphinx-doc.org for details
 		│
@@ -33,11 +32,8 @@ Project Organization
 		│
 		├── src                		<- Source code for use in this project
 		    ├── __init__.py    		<- Makes src a Python module
-		    │
-		    ├── data         		<- Scripts to download or generate data
-		    │   └── make_dataset.py
 		    │ 
-		    ├── features      		 <- Scripts to turn raw data into features for modeling
+		    ├── features      		<- Scripts to turn raw data into features for modeling
 		    │   └── build_features.R	 <- R script to read in external data, build features, and export processed data
 		    │
 		    └── models         		<- Scripts to train models and then use trained models to make predictions
