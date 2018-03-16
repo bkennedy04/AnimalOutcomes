@@ -11,8 +11,7 @@ Project Organization
 	│   └── templates				<- Dynamic HTML files for flask app use
 	│
 	├── develop          				<- Files for developing predictive model	
-	│	├── Makefile        			<- Makefile with commands like `make data` or `make train`
-	│	├── data			
+	│	├── data				<- Data files
 	│	│   ├── external    			<- The original datasets downloaded from kaggle
 	│	│   └── processed   			<- The final, transformed canonical data sets for modeling
 	│	│			
