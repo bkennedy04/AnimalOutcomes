@@ -6,9 +6,9 @@ Flask web app to predict shelter animal outcomes using Random Forest.
 Project Organization
 ------------
 	├── app	                			<- Files for developing flask app
-	│	├── logs						<- Logs generated during use of web app 
+	│   ├── logs					<- Logs generated during use of web app 
 	│   ├── static      				<- Static files for flask app to reference
-	│   └── templates					<- Dynamic HTML files for flask app use
+	│   └── templates				<- Dynamic HTML files for flask app use
 	│
 	├── develop          				<- Files for developing predictive model	
 	│	├── Makefile        			<- Makefile with commands like `make data` or `make train`
