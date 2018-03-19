@@ -108,6 +108,13 @@ Suggested Steps	to Reproduce
 11. You are now ready to run the flask app.
 
 	`python application.py`
+	
+12. Go to the ip address of your flask app and enjoy your creation.
+
+
+--------
+
+<p><small>Pivotal tracker link: https://www.pivotaltracker.com/n/projects/2142905</small></p>
 
 --------
 
