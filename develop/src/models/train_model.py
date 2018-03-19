@@ -8,7 +8,7 @@ import gzip
 import logging
 
 
-def fit_randomforest(x_train, y_train, max_features="auto", num_trees=250, SEED=12345):
+def fit_randomforest(x_train, y_train, max_features="auto", num_trees=200, SEED=12345):
     """ Returns trained random forest model
 
     :param x_train: predictor variable dataframe that has been transformed into suitable format

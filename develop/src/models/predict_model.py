@@ -27,7 +27,7 @@ def load_model(path='../../models/'):
     :returns: training model
 
     """
-    with gzip.open(os.path.dirname(__file__)+"./"+path+"/model_v1.pk.gz", "rb") as input_file:
+    with gzip.open(os.path.dirname(__file__)+"/"+path+"/model_v1.pk.gz", "rb") as input_file:
         model_rf = joblib.load(input_file)
     input_file.close()
 
