@@ -1,76 +1,75 @@
 <html>
-    <head>
-		<!-- Required meta tags -->
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-		<!-- Customized Style -->
-		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
-		
-		<!-- Optional JavaScript -->
-		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-	 
-		<!-- Set favicon -->
-		<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-		<script src="{{ url_for('static', filename='Chart.min.js') }}"></script>
-	
-        <title>Animal Outcome Prediction</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    </head>
-    <body>
+    <!-- Customized Style -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
 
-		
-			
-            <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
-              <a class="navbar-brand" href="{{ url_for('form') }}">Animal Outcomes</a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!-- Set favicon -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <script src="{{ url_for('static', filename='Chart.min.js') }}"></script>
+
+    <title>Animal Outcome Prediction</title>
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('form') }}" style="font-weight: bold">Animal Outcomes</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-              </button>
-            
-              <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav mr-auto">
-                  <li class="nav-item active">
-                    <a class="nav-link" href="{{ url_for('form') }}">Home <span class="sr-only">(current)</span></a>
-                  </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ url_for('form') }}">Home <span class="sr-only">(current)</span></a>
+                    </li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ url_for('about') }}">About <span class="sr-only">(current)</span></a>
+					</li>
                 </ul>
-				<span>
-				<ul class="navbar-nav mr-auto">
-                  <li class="nav-item active">
-                    <a class="nav-link" href="{{ url_for('about') }}">About <span class="sr-only">(current)</span></a>
-                  </li>
-                </ul>
-				</span>
+            </div>
+        </div>
+    </nav>
 
-              </div>
-            </nav>			
-			
-		    <!-- Main jumbotron for a primary marketing message or call to action -->
-	        <div class="jumbotron">
-	      	<div class="container">
-	      	  <h1 class="display-3">Predict Shelter Animal Outcomes!</h1>
-	      	  <p>Enter information to find out the outcomes for shelter animals using a random forest!</p>
-	      	</div>
-	        </div>
-			
-		<div class="container-fluid">
-			<div class="card" style="margin: 10px 0;">
-				<div class="card-body">
-					{% block content %}{% endblock %}
-				</div>
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+		<div class="container-fluid" style="min-height: 400px; background: url('http://cdn.skim.gs/images/v1/msi/gvjhdecy7zlmnxze6mzs/pug-puppies-should-rule-the-world-and-this-video-proves-it') top no-repeat;">
+			<div class="container" style="padding-top: 10rem;color: #fff">
+				<h1>Predict Shelter Animal Outcomes!</h1>
+				<p>Enter information to find out the outcomes for shelter animals using a random forest!</p>
 			</div>
-		</div>	
-			
-		<!-- FOOTER -->
-		<footer class="container">
-			<p class="float-right"><a href="#">Back to top</a></p>
-			<p>Brooke Kennedy &middot; Northwestern University MSiA &middot; Analytics Value Chain &middot; 2018</p>
-		</footer>
+		</div>
+		
+    <div class="container">
+		<div class="card" style="margin: 20px 0;">
+			<div class="card-body">
+				{% block content %}{% endblock %}
+			</div>
+		</div>
+	 </div>
 
-    </body>
+
+    <!-- FOOTER -->
+    <footer class="container">
+        <p class="float-right"><a href="#">Back to top</a></p>
+        <p>Brooke Kennedy &middot; Northwestern University MSiA &middot; Analytics Value Chain &middot; 2018</p>
+    </footer>
+
+</body>
+
 </html>

@@ -18,3 +18,195 @@ INFO:root:Trained model loaded.
 INFO:root:Predicted outcome using trained model and user input.
 INFO:root:User input and prediction commited to database.
 INFO:werkzeug:127.0.0.1 - - [16/Mar/2018 10:46:17] "POST / HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [18/Mar/2018 20:16:18] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [18/Mar/2018 20:16:18] "GET /static/style.css HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [18/Mar/2018 20:16:18] "GET /static/Chart.min.js HTTP/1.1" 304 -
+INFO:root:User visited the about page.
+INFO:werkzeug:127.0.0.1 - - [18/Mar/2018 20:52:54] "GET /about HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [18/Mar/2018 20:52:55] "GET /static/About.pdf HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [18/Mar/2018 20:53:27] "GET /index HTTP/1.1" 200 -
+INFO:root:User visited the about page.
+INFO:werkzeug:127.0.0.1 - - [18/Mar/2018 21:07:58] "GET /about HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:10:08] "GET /index HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:12:16] "GET /index HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:12:16] "GET /static/favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:21:42] "GET /index HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:21:42] "GET /static/favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:21:45] "GET /index HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:21:45] "GET /static/favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:21:59] "GET /index HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:22:00] "GET /favicon.ico HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:22:07] "GET /index HTTP/1.1" 500 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:23:54] "GET /index HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:23:54] "GET /static/favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:25:45] "GET /index HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:25:45] "GET /static/favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:25:48] "GET /index HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:25:49] "GET /static/favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:25:55] "GET /index HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:25:55] "GET /static/favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:27:01] "GET /index HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:27:01] "GET /static/favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:27:03] "GET /index HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:27:03] "GET /static/favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:28:49] "GET /index HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:28:49] "GET /static/favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:29:30] "GET /index HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:29:30] "GET /static/favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:29:36] "GET /index HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:29:36] "GET /static/favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:30:09] "GET /index HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:30:09] "GET /static/favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:30:51] "GET /index HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:30:52] "GET /static/favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:31:15] "GET /index HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:31:15] "GET /static/favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:32:31] "GET /index HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:32:31] "GET /static/favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:32:34] "GET /index HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:32:34] "GET /static/favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:32:35] "GET /index HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:32:35] "GET /static/favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:33:20] "GET /index HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:33:20] "GET /static/favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:37:38] "GET /index HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:37:38] "GET /static/favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:41:21] "GET /index HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:41:21] "GET /static/favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:44:36] "GET /index HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:44:36] "GET /static/favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:45:44] "GET /index HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:45:44] "GET /static/favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:46:10] "GET /index HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:46:11] "GET /static/favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:49:11] "GET /index HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:49:12] "GET /static/favicon.ico HTTP/1.1" 200 -
+INFO:root:User visited the about page.
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:49:21] "GET /about HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:root:User visited the about page.
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:49:58] "GET /about HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:49:58] "GET /static/favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:root:User visited the about page.
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:53:38] "GET /about HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:53:38] "GET /static/favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:root:User visited the about page.
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:55:31] "GET /about HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:57:23] "GET /index HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:57:25] "GET /index HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:58:48] "GET /index HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:58:48] "GET /static/favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:59:15] "GET /index HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:59:15] "GET /static/favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:59:17] "GET /index HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:59:17] "GET /static/favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:59:30] "GET /index HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 00:59:31] "GET /static/favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 01:00:20] "GET /index HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 01:00:20] "GET /static/favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 01:00:23] "GET /index HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 01:00:23] "GET /static/favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 01:00:31] "GET /index HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 01:00:31] "GET /static/favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 01:01:35] "GET /index HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 01:01:35] "GET /static/favicon.ico HTTP/1.1" 200 -
+INFO:root:User visited the about page.
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 01:01:41] "GET /about HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 01:01:47] "GET /index HTTP/1.1" 200 -
+INFO:root:User input received.
+INFO:root:Trained model loaded.
+INFO:root:Predicted outcome using trained model and user input.
+INFO:root:User input and prediction commited to database.
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 01:02:04] "POST /index HTTP/1.1" 200 -
+INFO:root:User input received.
+INFO:root:Trained model loaded.
+INFO:root:Predicted outcome using trained model and user input.
+INFO:root:User input and prediction commited to database.
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 01:06:41] "POST /index HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 01:06:42] "GET /static/favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:root:User input received.
+INFO:root:Trained model loaded.
+INFO:root:Predicted outcome using trained model and user input.
+INFO:root:User input and prediction commited to database.
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 01:09:26] "POST /index HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 01:09:27] "GET /static/favicon.ico HTTP/1.1" 200 -
+INFO:root:User input received.
+INFO:root:Trained model loaded.
+INFO:root:Predicted outcome using trained model and user input.
+INFO:root:User input and prediction commited to database.
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 01:11:21] "POST /index HTTP/1.1" 200 -
+INFO:root:User input received.
+INFO:root:Trained model loaded.
+INFO:root:Predicted outcome using trained model and user input.
+INFO:root:User input and prediction commited to database.
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 01:11:32] "POST /index HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 01:11:43] "GET /index HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 01:11:52] "POST /index HTTP/1.1" 200 -
+INFO:root:User input received.
+INFO:root:Trained model loaded.
+INFO:root:Predicted outcome using trained model and user input.
+INFO:root:User input and prediction commited to database.
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 01:12:00] "POST /index HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:root:User input received.
+INFO:root:Trained model loaded.
+INFO:root:Predicted outcome using trained model and user input.
+INFO:root:User input and prediction commited to database.
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 01:14:11] "POST /index HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:root:User input received.
+INFO:root:Trained model loaded.
+INFO:root:Predicted outcome using trained model and user input.
+INFO:root:User input and prediction commited to database.
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 01:14:39] "POST /index HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:root:User input received.
+INFO:root:Trained model loaded.
+INFO:root:Predicted outcome using trained model and user input.
+INFO:root:User input and prediction commited to database.
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 01:15:32] "POST /index HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 01:15:59] "GET /index HTTP/1.1" 200 -
+INFO:root:User input received.
+INFO:root:Trained model loaded.
+INFO:root:Predicted outcome using trained model and user input.
+INFO:root:User input and prediction commited to database.
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 01:16:12] "POST /index HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 01:17:24] "GET /index HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 01:21:03] "GET /index HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 01:21:03] "GET /static/favicon.ico HTTP/1.1" 200 -
+INFO:root:User input received.
+INFO:root:Trained model loaded.
+INFO:root:Predicted outcome using trained model and user input.
+INFO:root:User input and prediction commited to database.
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 01:22:00] "POST /index HTTP/1.1" 200 -
+INFO:root:User visited the about page.
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 01:22:29] "GET /about HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 01:22:32] "GET /index HTTP/1.1" 200 -
