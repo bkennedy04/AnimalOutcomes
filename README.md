@@ -51,6 +51,7 @@ Project Organization
 	├── requirements.txt            		<- The requirements file for reproducing the analysis environment, e.g.
 	│	                      	   			generated with `pip freeze > requirements.txt`
 	├── __init__.py              			<- Makes root directory a Python module
+	├── animaloutcomes-slides.pdf			<- Project presentation slides
 	└── .gitignore					
 	
 Suggested Steps	to Reproduce	
