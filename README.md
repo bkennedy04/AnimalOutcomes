@@ -111,6 +111,12 @@ Suggested Steps	to Reproduce
 	
 12. Go to the ip address of your flask app and enjoy your creation.
 
+Team Members
+--------
+
+<p>Project owner: Patrick Chang</p>
+<p>Developer: Brooke Kennedy</p>
+<p>QA: Emma Li</p>
 
 --------
 
