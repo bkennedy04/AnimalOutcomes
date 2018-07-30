@@ -80,6 +80,8 @@ if __name__ == "__main__":
     file.close()
     logging.info("Save trained columns as pickle.")
 
+    print("Training complete.")
+
 
 
 

@@ -6,28 +6,28 @@ import gzip
 import logging
 
 
-def load_columns(path='../../models/'):
+def load_columns(path='../../models'):
     """ Returns list of training set columns to validate against test set, loaded from pickle file
 
     :param path: path to pickle file
     :returns: training set columns
 
     """
-    with open(os.path.dirname(__file__)+"/"+path+"/train_columns.pk", "rb") as input_file:
+    with open(os.path.join(os.path.join(os.path.dirname(__file__),path),"train_columns.pk"), "rb") as input_file:
         train_columns = pickle.load(input_file)
     input_file.close()
 
     return train_columns
 
 
-def load_model(path='../../models/'):
+def load_model(path='../../models'):
     """ Returns trained model loaded in from compressed joblib pickle file
 
     :param path: path to pickle file
     :returns: training model
 
     """
-    with gzip.open(os.path.dirname(__file__)+"/"+path+"/model_v1.pk.gz", "rb") as input_file:
+    with gzip.open(os.path.join(os.path.join(os.path.dirname(__file__),path),"model_v1.pk.gz"), "rb") as input_file:
         model_rf = joblib.load(input_file)
     input_file.close()
 

@@ -235,3 +235,56 @@ INFO:root:Predicted outcome using trained model and user input.
 INFO:root:User input and prediction commited to database.
 INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 02:07:46] "POST /index HTTP/1.1" 200 -
 INFO:werkzeug:127.0.0.1 - - [19/Mar/2018 02:07:47] "GET /static/favicon.ico HTTP/1.1" 200 -
+INFO:root:Database created.
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 166-933-441
+INFO:werkzeug:127.0.0.1 - - [29/Jul/2018 23:43:47] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jul/2018 23:43:47] "GET /static/style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jul/2018 23:43:47] "GET /static/Chart.min.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jul/2018 23:43:47] "GET /static/favicon.ico HTTP/1.1" 200 -
+INFO:root:User input received.
+INFO:werkzeug:127.0.0.1 - - [29/Jul/2018 23:45:06] "POST / HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [29/Jul/2018 23:45:06] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jul/2018 23:45:06] "GET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jul/2018 23:45:06] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jul/2018 23:45:06] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jul/2018 23:45:06] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/home/brooke/Documents/trt/AnimalOutcomes/develop/src/models/predict_model.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 166-933-441
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 166-933-441
+INFO:werkzeug:127.0.0.1 - - [29/Jul/2018 23:49:36] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jul/2018 23:49:45] "POST / HTTP/1.1" 200 -
+INFO:root:User input received.
+INFO:werkzeug:127.0.0.1 - - [29/Jul/2018 23:49:51] "POST / HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [29/Jul/2018 23:49:51] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jul/2018 23:49:51] "GET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jul/2018 23:49:51] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jul/2018 23:49:52] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jul/2018 23:49:52] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/home/brooke/Documents/trt/AnimalOutcomes/develop/src/models/predict_model.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 166-933-441
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 166-933-441
+INFO:werkzeug:127.0.0.1 - - [29/Jul/2018 23:50:27] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jul/2018 23:50:36] "POST / HTTP/1.1" 200 -
+INFO:root:User input received.
+INFO:root:Trained model loaded.
+INFO:root:Predicted outcome using trained model and user input.
+INFO:root:User input and prediction commited to database.
+INFO:werkzeug:127.0.0.1 - - [29/Jul/2018 23:50:43] "POST / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jul/2018 23:51:24] "GET /index HTTP/1.1" 200 -
+INFO:root:User visited the about page.
+INFO:werkzeug:127.0.0.1 - - [29/Jul/2018 23:51:31] "GET /about HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jul/2018 23:51:31] "GET /static/About.pdf HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jul/2018 23:51:40] "GET /index HTTP/1.1" 200 -
