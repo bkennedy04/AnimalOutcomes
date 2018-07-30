@@ -1,10 +1,23 @@
-library(tidyr)
-library(dplyr)
-library(dummies)
-library(lubridate)
-library(nnet)
-library(caret)
+pkgLoad <- function() {
+    packages <- c( "tidyr", "dplyr", "dummies", "lubridate", "nnet", "caret")
 
+    packagecheck <- match( packages, utils::installed.packages()[,1] )
+
+    packagestoinstall <- packages[ is.na( packagecheck ) ]
+
+    if( length( packagestoinstall ) > 0L ) {
+        install.packages(packagestoinstall, repos = "http://cran.us.r-project.org")
+    } 
+    else {
+        print( "All requested packages already installed" )
+    }
+
+    for( package in packages ) {
+        suppressPackageStartupMessages(
+            library( package, character.only = TRUE, quietly = TRUE )
+        )
+    }
+}
 
 read_in_data <- function(path){
   train <- read.csv(paste(path,"/external/train.csv",sep = ''), strip.white = TRUE, na.strings=c("","NA"))
@@ -124,7 +137,9 @@ output_final <- function(df){
   write.csv(testset, file = paste(path,"/processed/testset.csv", sep = ''), row.names = FALSE)
 }
 
+pkgLoad()
 path <- "../../data"
 df <- read_in_data(path)
 df <- data_cleansing(df)
 output_final(df)
+print('Features created.')
