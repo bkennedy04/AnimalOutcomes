@@ -49,11 +49,13 @@ def prepare_data(train, categorical):
 
 if __name__ == "__main__":
 
+    dirname, filename = os.path.split(os.path.abspath(__file__))
+
     # Create logging file if DNE otherwise append to it
-    logging.basicConfig(filename="../../logs/train.log", level=logging.INFO)
+    logging.basicConfig(filename=os.path.join(dirname, "../../logs/train.log"), level=logging.INFO)
 
     # Read in processed data and format
-    train = pd.read_csv('../../data/processed/trainset.csv')
+    train = pd.read_csv(os.path.join(dirname, '../../data/processed/trainset.csv'))
     logging.info("Processed data loaded.")
     categorical = ['gender', 'hasName', 'isDog', 'isMix', 'month', 'weekday', 'hourOfDay', 'isFixed', 'newBreed', 'newColor']
     train_binary_dummy = prepare_data(train, categorical)
@@ -68,14 +70,14 @@ if __name__ == "__main__":
 
     # Save trained model as compressed joblib pickle for later use
     filename = 'model_v1.pk'
-    with gzip.open('../../models/'+filename+'.gz', 'wb') as file:
+    with gzip.open(os.path.join(os.path.join(dirname, '../../models'), filename + '.gz'), 'wb') as file:
         joblib.dump(model_rf, file)
     file.close()
     logging.info("Save trained model as compressed joblib pickle.")
 
     # Save trained columns as pickle for later use
     filename = 'train_columns.pk'
-    with open('../../models/'+filename, 'wb') as file:
+    with open(os.path.join(os.path.join(dirname, '../../models'), filename), 'wb') as file:
         pickle.dump(columns, file)
     file.close()
     logging.info("Save trained columns as pickle.")

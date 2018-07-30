@@ -288,3 +288,19 @@ INFO:root:User visited the about page.
 INFO:werkzeug:127.0.0.1 - - [29/Jul/2018 23:51:31] "GET /about HTTP/1.1" 200 -
 INFO:werkzeug:127.0.0.1 - - [29/Jul/2018 23:51:31] "GET /static/About.pdf HTTP/1.1" 200 -
 INFO:werkzeug:127.0.0.1 - - [29/Jul/2018 23:51:40] "GET /index HTTP/1.1" 200 -
+INFO:root:Database created.
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 166-933-441
+INFO:root:Database created.
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 166-933-441
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2018 01:27:42] "GET / HTTP/1.1" 200 -
+INFO:root:User input received.
+INFO:root:Trained model loaded.
+INFO:root:Predicted outcome using trained model and user input.
+INFO:root:User input and prediction commited to database.
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2018 01:28:12] "POST / HTTP/1.1" 200 -
