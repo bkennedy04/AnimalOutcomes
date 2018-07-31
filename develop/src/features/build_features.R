@@ -1,5 +1,6 @@
+# install and load necessary packages
 pkgLoad <- function() {
-    packages <- c( "tidyr", "dplyr", "dummies", "lubridate", "nnet", "caret")
+    packages <- c( "tidyr", "dplyr", "dummies", "lubridate", "nnet", "caret", "rstudioapi")
 
     packagecheck <- match( packages, utils::installed.packages()[,1] )
 
@@ -17,6 +18,20 @@ pkgLoad <- function() {
             library( package, character.only = TRUE, quietly = TRUE )
         )
     }
+}
+
+# get path of script
+thisFile <- function() {
+        cmdArgs <- commandArgs(trailingOnly = FALSE)
+        needle <- "--file="
+        match <- grep(needle, cmdArgs)
+        if (length(match) > 0) {
+                # Rscript
+                return(normalizePath(sub(needle, "", cmdArgs[match])))
+        } else {
+                # 'source'd via R console
+                return(normalizePath(sys.frames()[[1]]$ofile))
+        }
 }
 
 read_in_data <- function(path){
@@ -138,7 +153,7 @@ output_final <- function(df){
 }
 
 pkgLoad()
-path <- "../../data"
+path <- paste(thisFile(), "../../../data", sep="/")
 df <- read_in_data(path)
 df <- data_cleansing(df)
 output_final(df)

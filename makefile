@@ -1,14 +1,11 @@
-develop/data/processed/trainset.csv: develop/data/external/train.csv
-	Rscript develop/data/processed/build_features.R
+feature_engineering: develop/data/external/train.csv develop/src/features/build_features.R
+	Rscript develop/src/features/build_features.R
 
-develop/models/model_v1.pk.gz: develop/data/processed/trainset.csv
+modeling: develop/data/processed/trainset.csv develop/models/model_v1.pk.gz develop/models/train_columns.pk
 	python develop/src/models/train_model.py
 
-
-model: develop/models/model_v1.pk.gz
-
-app.db: model
+database: app/models.py app/routes.py
 	python db_create.py
 
-all: app.db model
+all: feature_engineering modeling database
 	python application.py
