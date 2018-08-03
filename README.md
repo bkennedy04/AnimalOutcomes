@@ -72,6 +72,14 @@ Suggested Steps	to Reproduce
    Windows Users:
 
     `activate myenv`
+    
+5. Run the rest of the workflow. 
+
+    `make all`   
+    
+----------------------------------------    
+    OR
+----------------------------------------
 
 5. Install required packages. 
 
