@@ -484,3 +484,31 @@ INFO:root:Trained model loaded.
 INFO:root:Predicted outcome using trained model and user input.
 INFO:root:User input and prediction commited to database.
 INFO:werkzeug:127.0.0.1 - - [31/Jul/2018 12:09:39] "POST /index HTTP/1.1" 200 -
+INFO:root:Database created.
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 240-952-176
+INFO:werkzeug: * Running on http://127.0.0.1:8080/ (Press CTRL+C to quit)
+INFO:root:Database created.
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 240-952-176
+INFO:werkzeug: * Running on http://127.0.0.1:8080/ (Press CTRL+C to quit)
+INFO:root:Database created.
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 692-319-295
+INFO:werkzeug: * Running on http://127.0.0.1:8080/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [02/Aug/2018 01:50:17] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Aug/2018 01:50:17] "GET /static/style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Aug/2018 01:50:17] "GET /static/Chart.min.js HTTP/1.1" 200 -
+INFO:root:User input received.
+INFO:root:Trained model loaded.
+INFO:root:Predicted outcome using trained model and user input.
+INFO:root:User input and prediction commited to database.
+INFO:werkzeug:127.0.0.1 - - [02/Aug/2018 01:51:54] "POST / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Aug/2018 01:52:34] "GET /index HTTP/1.1" 200 -
+INFO:root:User visited the about page.
+INFO:werkzeug:127.0.0.1 - - [02/Aug/2018 01:52:37] "GET /about HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Aug/2018 01:52:37] "GET /static/About.pdf HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Aug/2018 01:52:38] "GET /index HTTP/1.1" 200 -

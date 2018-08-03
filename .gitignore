@@ -1,5 +1,5 @@
 # Config file
-config.py
+# config.py
 
 # Pycache
 __pycache__/
@@ -8,4 +8,4 @@ __pycache__/
 .idea/
 
 # local database
-app.db
+# app.db
