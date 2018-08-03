@@ -59,13 +59,11 @@ Suggested Steps	to Reproduce
 
 1. Clone AnimalOutcomes repository.
 
-2. Download data from [here](https://www.kaggle.com/c/shelter-animal-outcomes/data) and extract and save in AnimalOutcomes/develop/data/external as 'train.csv' and 'test.csv'.
-
-3. Create conda environment. 
+2. Create conda environment. 
 
     `conda create -n myenv python=3`
     
-4. Activate environment.
+3. Activate environment.
 
     `source activate myenv`
 	
@@ -73,7 +71,7 @@ Suggested Steps	to Reproduce
 
     `activate myenv`
     
-5. Run the rest of the workflow. 
+4. Run the rest of the workflow. 
 
     `make all`   
     
@@ -81,23 +79,23 @@ Suggested Steps	to Reproduce
     OR
 ----------------------------------------
 
-5. Install required packages. 
+4. Install required packages. 
 
     `pip install -r requirements.txt`
 
-6. Navigate to AnimalOutcomes/develop/src/features and run build_features.R script. This will process the external data and export to AnimalOutcomes/develop/data/processed.
+5. Navigate to AnimalOutcomes/develop/src/features and run build_features.R script. This will process the external data and export to AnimalOutcomes/develop/data/processed.
 
 	`Rscript build_features.R`
 	
-7. Navigate to AnimalOutcomes/develop/src/models and run train_model.py. This will train random forest model using processed data and serialize model for later use.
+6. Navigate to AnimalOutcomes/develop/src/models and run train_model.py. This will train random forest model using processed data and serialize model for later use.
 
 	`python train_model.py`
 	
-8. Now run predict_model.py to make sure everything is working as expected.
+7. Now run predict_model.py to make sure everything is working as expected.
 
 	`python predict_model.py`
 	
-9. Navigate to AnimalOutcomes/ and create a config.py file with the information necessary to create your database connection. **Do not commit this file.** 
+8. Navigate to AnimalOutcomes/ and create a config.py file with the information necessary to create your database connection. **Do not commit this file.** 
      
     ```python
 	import os
@@ -110,15 +108,19 @@ Suggested Steps	to Reproduce
 		# SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://<user>:<password>@<endpoint>/<database name>'
 		SQLALCHEMY_TRACK_MODIFICATIONS = False
     ``` 
-10. Create the database.
+9. Create the database.
 
 	`python db_create.py`
 	
-11. You are now ready to run the flask app.
+10. You are now ready to run the flask app.
 
 	`python application.py`
 	
-12. Go to the ip address of your flask app and enjoy your creation.
+11. Go to the ip address of your flask app and enjoy your creation.
+
+Data Source
+--------
+[Kaggle competition](https://www.kaggle.com/c/shelter-animal-outcomes/data)
 
 Team Members
 --------
