@@ -1,6 +1,6 @@
 # install and load necessary packages
 pkgLoad <- function() {
-    packages <- c( "tidyr", "dplyr", "dummies", "lubridate", "nnet", "caret", "rstudioapi")
+    packages <- c( "tidyr", "dplyr", "dummies", "lubridate", "nnet", "caret")
 
     packagecheck <- match( packages, utils::installed.packages()[,1] )
 
