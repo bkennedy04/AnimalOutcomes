@@ -122,17 +122,5 @@ Data Source
 --------
 [Kaggle competition](https://www.kaggle.com/c/shelter-animal-outcomes/data)
 
-Team Members
 --------
-
-<p>Project owner: Patrick Chang</p>
-<p>Developer: Brooke Kennedy</p>
-<p>QA: Emma Li</p>
-
---------
-
-<p><small>Pivotal tracker link: https://www.pivotaltracker.com/n/projects/2142905</small></p>
-
---------
-
 <p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
